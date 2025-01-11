@@ -107,7 +107,7 @@ main {
 
 .search-form .form-group label {
   line-height: 60px;
-  
+
   font-size: 1em;
   font-weight: 700;
   text-transform: uppercase;
@@ -160,7 +160,7 @@ main {
   margin-block-start: 32px;
 }
 
-.club-list .list {
+/* .club-list .list {
   overflow: auto;
 }
 
@@ -177,6 +177,12 @@ main {
 
 .club-list .list > *:nth-child(even) {
   margin-inline-start: 2%;
+} */
+
+.club-list .list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
 
 .club-list .list .card .fan-art-club {
