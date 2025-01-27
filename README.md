@@ -1,4 +1,4 @@
-# Dicoding Class Practice Clubs Finder App - (Belajar Fundamental Front-End Web Development (Learn Front-End Web Development Fundamentals))
+# Dicoding Class Practice - Clubs Finder App (Belajar Fundamental Front-End Web Development (Learn Front-End Web Development Fundamentals))
 
 ## Author
 
