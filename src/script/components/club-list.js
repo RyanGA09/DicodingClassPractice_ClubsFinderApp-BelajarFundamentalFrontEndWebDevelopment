@@ -1,4 +1,4 @@
-import Utils from "../utils";
+import Utils from "../utils.js";
 
 class ClubList extends HTMLElement {
   _shadowRoot = null;
@@ -7,7 +7,7 @@ class ClubList extends HTMLElement {
   _column = 2;
   _gutter = 16;
 
-  static get observedAttribute() {
+  static get observedAttributes() {
     return ["column", "gutter"];
   }
 
@@ -22,16 +22,16 @@ class ClubList extends HTMLElement {
 
   _updateStyle() {
     this._style.textContent = `
-        :host{
-            display: block;
-        }
-
-        .list{
-            display: grid;
-            grid-template-columns: repeat(${this._column});
-        
-            gap: $this{this.gutter}px
-        }
+      :host {
+        display: block;
+      }
+      
+      .list {
+        display: grid;
+        grid-template-columns: ${"1fr ".repeat(this.column)};
+      
+        gap: ${this.gutter}px;
+      }
     `;
   }
 
@@ -67,9 +67,9 @@ class ClubList extends HTMLElement {
 
     this._shadowRoot.appendChild(this._style);
     this._shadowRoot.innerHTML += `
-        <div>
-            <slot></slot>
-        </div>
+      <div class="list">
+        <slot></slot>
+      </div>
     `;
   }
 
@@ -82,6 +82,7 @@ class ClubList extends HTMLElement {
         this.gutter = newValue;
         break;
     }
+
     this.render();
   }
 }

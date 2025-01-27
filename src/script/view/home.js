@@ -2,15 +2,11 @@ import Utils from "../utils.js";
 import Clubs from "../data/local/clubs.js";
 
 const home = () => {
-  const searchFormElement = document.querySelector("#searchForm");
+  const searchFormElement = document.querySelector("search-bar");
 
   const clubListContainerElement = document.querySelector("#clubListContainer");
-  const clubQueryWaitingElement =
-    clubListContainerElement.querySelector(".query-waiting");
-  const clubLoadingElement =
-    clubListContainerElement.querySelector(".search-loading");
-  // const clubListElement = clubListContainerElement.querySelector(".club-list");
-  // const listElement = clubListElement.querySelector(".list");
+  const clubQueryWaitingElement = document.querySelector("query-waiting");
+  const clubLoadingElement = document.querySelector("search-loading");
   const clubListElement = clubListContainerElement.querySelector("club-list");
 
   const showSportClub = (query) => {
@@ -25,39 +21,20 @@ const home = () => {
   const onSearchHandler = (event) => {
     event.preventDefault();
 
-    const query = event.target.elements.name.value;
+    const { query } = event.detail;
     showSportClub(query);
   };
 
   const displayResult = (clubs) => {
     const clubItemElements = clubs.map((club) => {
-      // const clubItems = clubs.map((club) => {
       const clubItemElement = document.createElement("club-item");
       clubItemElement.club = club;
 
       return clubItemElement;
-      // return `
-      //   <div class="card">
-      //     <img
-      //       class="fan-art-club"
-      //       src="${club.strTeamBadge}"
-      //       alt="Fan Art: ${club.strTeam}"
-      //     >
-      //     <div class="club-info">
-      //       <div class="club-info__title">
-      //         <h2>${club.strTeam}</h2>
-      //       </div>
-      //       <div class="club-info__description">
-      //         <p>${club.strDescriptionEN}</p>
-      //       </div>
-      //     </div>
-      //   </div>
-      // `;
     });
 
     Utils.emptyElement(clubListElement);
     clubListElement.append(...clubItemElements);
-    // listElement.innerHTML = clubItems.join("");
   };
 
   const showClubList = () => {
@@ -81,7 +58,7 @@ const home = () => {
     Utils.showElement(clubQueryWaitingElement);
   };
 
-  searchFormElement.addEventListener("submit", onSearchHandler);
+  searchFormElement.addEventListener("search", onSearchHandler);
   showQueryWaiting();
 };
 

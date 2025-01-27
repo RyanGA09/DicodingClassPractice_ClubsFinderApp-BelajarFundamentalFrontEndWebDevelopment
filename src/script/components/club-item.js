@@ -39,7 +39,7 @@ class ClubItem extends HTMLElement {
         box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
         overflow: hidden;
       }
- 
+
       .fan-art-club {
         width: 100%;
         max-height: 450px;
@@ -47,21 +47,21 @@ class ClubItem extends HTMLElement {
         object-fit: cover;
         object-position: center;
       }
- 
+
       .club-info {
         padding: 16px 24px;
       }
- 
+
       .club-info__title h2 {
         font-weight: lighter;
       }
- 
+
       .club-info__description p {
         display: -webkit-box;
         margin-top: 10px;
         
         overflow: hidden;
- 
+
         text-overflow: ellipsis;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 5; /* number of lines to show */
